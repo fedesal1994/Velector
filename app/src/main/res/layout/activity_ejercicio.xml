@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/layout_principal"
+    tools:context="com.federico.velector.ActivityEjercicio">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:id="@+id/layout_superior"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        android:paddingLeft="10dp"
+        android:background="@color/myblack"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            style="@style/titlestyle"
+            android:text="PPM: "
+            android:textColor="@color/white">
+
+        </TextView>
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/menos"
+            android:textSize="29sp"
+            android:textColor="@color/myred"
+            android:padding="0dp"
+            android:textStyle="bold">
+
+        </Button>
+
+        <EditText
+            android:layout_width="60dp"
+            android:layout_height="45dp"
+            android:inputType="number"
+            android:textSize="22sp"
+            android:textColor="@color/white"
+            android:maxLength="4"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"/>
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="@string/mas"
+            android:textSize="29sp"
+            android:textColor="@color/myred"
+            android:padding="0dp"
+            android:textStyle="bold">
+
+        </Button>
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/metronomo"
+            android:textColor="@color/white"
+            android:paddingLeft="15dp"
+            android:padding="14dp"
+            android:textSize="22dp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_backup_restore"/>
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textoshow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:text="dijo el pájaro: “Nunca más.”"
+        android:textSize="23sp"
+        android:textColor="@color/black"/>
+
+</FrameLayout>

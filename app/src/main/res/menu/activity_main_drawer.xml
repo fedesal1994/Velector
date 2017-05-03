@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_inicio"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Inicio" />
+        <item
+            android:id="@+id/nav_estadisticas"
+            android:icon="@drawable/ic_menu_stack"
+            android:title="Estadisticas" />
+        <item
+            android:id="@+id/nav_beneficios"
+            android:icon="@drawable/ic_menu_bulb"
+            android:title="Beneficios" />
+
+        <item android:title="Otros">
+            <menu>
+                <item
+                    android:id="@+id/nav_share"
+                    android:icon="@drawable/ic_menu_share"
+                    android:title="Compartir" />
+                <item
+                    android:id="@+id/nav_salir"
+                    android:icon="@drawable/ic_menu_close_outline"
+                    android:title="Cerrar Sesión" />
+            </menu>
+        </item>
+
+    </group>
+
+
+
+</menu>

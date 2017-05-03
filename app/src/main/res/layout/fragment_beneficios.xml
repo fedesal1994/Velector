@@ -1,0 +1,74 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.federico.velector.Fragment_Beneficios">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:id="@+id/textobeneficios"
+        android:padding="10dp"
+        android:text="@string/justificacion2"
+        android:textColor="@color/black"
+        android:maxLines="9"
+        android:scrollbars="vertical"
+        android:textSize="18sp"/>
+
+
+    <TextView style="@style/titlestyle"
+        android:id="@+id/justificacion"
+        android:text="@string/justificacion"
+        android:onClick="click"
+        android:paddingLeft="10dp"
+        android:layout_gravity="left"/>
+
+    <TextView style="@style/titlestyle"
+        android:text="@string/erroresaeliminar"
+        android:paddingLeft="10dp"
+        android:textColor="@color/black"
+        android:layout_gravity="left"/>
+
+    <TextView style="@style/titlestyle"
+        android:id="@+id/texttabular"
+        android:text="@string/lecturatabular"
+        android:onClick="click"
+        android:textSize="18sp"
+        android:paddingLeft="30dp"
+        android:layout_gravity="left"/>
+
+    <TextView style="@style/titlestyle"
+        android:id="@+id/textregresion"
+        android:text="@string/regresion"
+        android:onClick="click"
+        android:textSize="18sp"
+        android:paddingLeft="30dp"
+        android:layout_gravity="left"/>
+
+    <TextView style="@style/titlestyle"
+        android:id="@+id/textsubvocalizacion"
+        android:text="@string/subvocalizacion"
+        android:onClick="click"
+        android:textSize="18sp"
+        android:paddingLeft="30dp"
+        android:layout_gravity="left"/>
+
+    <TextView style="@style/titlestyle"
+        android:id="@+id/textvizual"
+        android:text="@string/fijacionvizual"
+        android:onClick="click"
+        android:textSize="18sp"
+        android:paddingLeft="30dp"
+        android:layout_gravity="left"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"/>
+
+</LinearLayout>

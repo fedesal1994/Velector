@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Velector</string>
+    <string name="Bienvenido">Bienvenido</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="iniciotxt">Estás listo para poner a prueba la capacidad de tus ojos y tu comprensión? si es así clickea el botón</string>
+    <string name="iniciobtn">Iniciar</string>
+    <string name="ultimotexto"><u>Último Texto</u></string>
+    <string name="ultimotitulo">Titulo:</string>
+    <string name="ultimoautor">Autor:</string>
+    <string name="ppm">PPM:</string>
+    <string name="palabrasleidas">Palabras:</string>
+    <string name="ultimasesion"><u>Última Sesión</u></string>
+    <string name="textos">Textos:</string>
+    <string name="total"><u>Total</u></string>
+    <string name="justificacion">> <u>Justificación</u></string>
+    <string name="erroresaeliminar">Errores A Eliminar:</string>
+    <string name="justificacion2"><b>Justificación:\n</b>En la actualidad es necesario absorber mayor cantidad de información para desarrollar actividades en el menor tiempo posible, puesto que cada día la cantidad de conocimientos se hace más extensa. Si se lleva esto solo al ámbito educativo puede representar una optimización de tiempo muy significativa.</string>
+    <string name="lecturatabular">> <u>Lectura Tabular</u></string>
+    <string name="lecturatabular2"><b><u>Lectura Tabular:</u></b>\nEste texto habla sobre la lectura tabular</string>
+    <string name="regresion">> <u>Regresión</u></string>
+    <string name="regresion2"><b>Regresión:\n</b>Este texto habla sobre la regresión</string>
+    <string name="subvocalizacion">> <u>Subvocalización</u></string>
+    <string name="subvocalizacion2"><b>Subvocalización:\n</b>Este texto habla sobre la subvocalización</string>
+    <string name="fijacionvizual">> <u>Poca habilidad de fijación</u></string>
+    <string name="fijacionvizual2"><b>Poca habilidad de fijación:\n</b>Este texto habla sobre la poca habilidad de fijación vizual</string>
+    <string name="comparte">Comparte esta APP para llegar a más personas</string>
+    <string name="condiciones">Ingresa las condiciones iniciales</string>
+    <string name="ppm2">Palabras por minuto:</string>
+    <string name="palabrasenpantalla">Palabras en pantalla:</string>
+    <string name="metronomo">Metronomo:</string>
+    <string name="menos">-</string>
+    <string name="mas">+</string>
+    <string name="palabras">Palabras:</string>
+</resources>
