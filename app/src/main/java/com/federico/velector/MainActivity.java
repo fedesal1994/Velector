@@ -1,9 +1,12 @@
 package com.federico.velector;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -17,6 +20,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import static com.federico.velector.R.id.content_main;
 
@@ -26,6 +30,10 @@ public class MainActivity extends AppCompatActivity
         FragmentEstadisticas.OnFragmentInteractionListener,
         Fragment_Beneficios.OnFragmentInteractionListener,
         Fragment_Compartir.OnFragmentInteractionListener{
+
+    private long mLastPress = 0;    // Cuándo se pulsó atrás por última vez
+    private long mTimeLimit = 2000; // Límite de tiempo entre pulsaciones, en ms
+    boolean fragmentinicio = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +65,69 @@ public class MainActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if (fragmentinicio) {
+                Toast toast = Toast.makeText(getApplicationContext(), R.string.presionaotravezparasalir, Toast.LENGTH_SHORT);
+                long currentTime = System.currentTimeMillis();
+                if (currentTime - mLastPress > mTimeLimit) {
+                    toast.show();
+                    mLastPress = currentTime;
+                } else {
+                    toast.cancel();
+                    super.onBackPressed();
+                }
+            } else{
+                Fragment fragment = new Fragment_Inicio();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(content_main,fragment)
+                        .commit();
+                getSupportActionBar().setTitle("Inicio");
+                fragmentinicio = true;
+            }
         }
     }
+
+    /*@Override
+    public void onBackPressed() {
+        Toast onBackPressedToast = Toast.makeText(this,
+                R.string.presionaotravezparasalir, Toast.LENGTH_SHORT);
+        long currentTime = System.currentTimeMillis();
+
+        if (currentTime - mLastPress > mTimeLimit) {
+            onBackPressedToast.show();
+            mLastPress = currentTime;
+        } else {
+            onBackPressedToast.cancel();
+            super.onBackPressed();
+        }
+
+    }*/
+
+     /*@Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            if (back_pressed_time + 2000 > System.currentTimeMillis()) {
+                SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                if (prefs.getBoolean("SesionActiva", false) == false) {
+                    editor.putString("Nombre", "");
+                    editor.putString("Correo", "");
+                    editor.putString("Contrasena", "");
+                    editor.putString("Imagen", "");
+                    editor.putInt("Edad", 0);
+                    editor.putBoolean("Logeado", false);
+                    editor.putBoolean("SesionActiva", false);
+                    editor.putBoolean("agregarEventos", false);
+                    editor.commit();
+                }
+                finish();
+                super.onBackPressed();
+            } else
+                Toast.makeText(getBaseContext(), getResources().getString(R.string.presione_salir), Toast.LENGTH_SHORT).show();
+            back_pressed_time = System.currentTimeMillis();
+        }
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -95,18 +163,22 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_inicio) {
             fragment = new Fragment_Inicio();
             fragmentstep = true;
+            fragmentinicio = true;
 
         } else if (id == R.id.nav_estadisticas) {
             fragment = new FragmentEstadisticas();
             fragmentstep = true;
+            fragmentinicio = false;
 
         } else if (id == R.id.nav_beneficios) {
             fragment = new Fragment_Beneficios();
             fragmentstep = true;
+            fragmentinicio = false;
 
         } else if (id == R.id.nav_share) {
             fragment = new Fragment_Compartir();
             fragmentstep = true;
+            fragmentinicio = false;
 
         } else if (id == R.id.nav_salir) {
             Intent i = new Intent().setClass(MainActivity.this, ActivityLogin.class);
@@ -130,4 +202,49 @@ public class MainActivity extends AppCompatActivity
     public void onFragmentInteraction(Uri uri) {
 
     }
+
+
+    /*@Override
+    public void onBackPressed() {
+        Toast onBackPressedToast = Toast.makeText(this,
+                R.string.presionaotravezparasalir, Toast.LENGTH_SHORT);
+        long currentTime = System.currentTimeMillis();
+
+        if (currentTime - mLastPress > mTimeLimit) {
+            onBackPressedToast.show();
+            mLastPress = currentTime;
+        } else {
+            onBackPressedToast.cancel();
+            super.onBackPressed();
+        }
+
+    }*/
+
+    /*@Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            if (back_pressed_time + 2000 > System.currentTimeMillis()) {
+                SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                if (prefs.getBoolean("SesionActiva", false) == false) {
+                    editor.putString("Nombre", "");
+                    editor.putString("Correo", "");
+                    editor.putString("Contrasena", "");
+                    editor.putString("Imagen", "");
+                    editor.putInt("Edad", 0);
+                    editor.putBoolean("Logeado", false);
+                    editor.putBoolean("SesionActiva", false);
+                    editor.putBoolean("agregarEventos", false);
+                    editor.commit();
+                }
+                finish();
+                super.onBackPressed();
+            } else
+                Toast.makeText(getBaseContext(), getResources().getString(R.string.presione_salir), Toast.LENGTH_SHORT).show();
+            back_pressed_time = System.currentTimeMillis();
+        }
+    }*/
+
 }
